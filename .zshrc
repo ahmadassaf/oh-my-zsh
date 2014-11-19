@@ -4,8 +4,8 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded. i.e. theunraveler wedisagree kphoen gozilla
-ZSH_THEME="bureau"
+# time that oh-my-zsh is loaded. i.e. theunraveler wedisagree kphoen gozilla soren
+ZSH_THEME="cobalt3"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -78,5 +78,6 @@ export PATH="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/bin
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias reload="source ~/.zshrc"
 
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
