@@ -192,7 +192,7 @@ Due to the fact that the original repo's maintenance is not active, i have decid
 ### Themes
 
 - Added cobalt3 theme `cobalt3.zsh.theme` [screenshot below]
-![zsh cobalt3 Theme](https://github.com/ahmadassaf/configurations/blob/master/screenshots/zsh_theme_cobalt3.png)
+![zsh cobalt3 Theme](https://github.com/ahmadassaf/configurations/blob/master/screenshots/oh-my-zsh_theme_cobalt3.png)
 
 # References
 
