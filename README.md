@@ -7,7 +7,7 @@ The default shell on most systems is bash. While bash is a perfectly fine shell,
 brew install zsh
 ```
 
-To change your shell on a OS X you can either run `chsh -s /usr/local/bin/zsh` or go to System Preferences -> Users & Groups -> Click the lock -> Right click your user -> Advanced Options -> and paste `/usr/local/bin/zsh` in the login shell field.
+To change your shell on a OS X you can either run `chsh -s /usr/local/bin/zsh` or go to `System Preferences -> Users & Groups -> Click the lock -> Right click your user -> Advanced Options` and paste `/usr/local/bin/zsh` in the login shell field.
 
 Zsh has seen wide adoption by developers looking to improve their interactive shell experience. Most developers may already have cultivated a bash profile and collected tab completions, aliases and functions that help get repetitive tasks done quick.
 
