@@ -24,8 +24,8 @@ I recommend if you would like to copy my settings is to follow instructions in m
 
 ### Automatic Installtion
 
-- curl: `curl -L http://install.ohmyz.sh | sh`
-- wget: `wget --no-check-certificate http://install.ohmyz.sh -O - | sh`
+- **curl**: `curl -L http://install.ohmyz.sh | sh`
+- **wget**: `wget --no-check-certificate http://install.ohmyz.sh -O - | sh`
 
 The default location is ~/.oh-my-zsh (hidden in your home directory).
 
@@ -44,7 +44,7 @@ You can change the install directory with the `ZSH` environment variable, either
 
 I am using both terminal and iTerm2. I have set up my terminal to use bash and my iTerm to be using zsh. You can configure iTerm to use zsh by:
 
-- Go to iTerm > Preferences > Profiles
+- Go to `iTerm -> Preferences -> Profiles`
 - Set the Command to: `/usr/local/bin/zsh`
 
 ## Using Plugins and Themes
