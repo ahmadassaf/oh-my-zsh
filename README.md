@@ -1,7 +1,7 @@
 
 # ZSH
 
-The default shell on most systems is bash. While bash is a perfectly fine shell, zsh is more customisable, faster (so they say) and has some amazing plugins. It does everything bash does and comes pre-installed on any Mac. It's an outdated version though, so you want to use homebrew to install the latest version.
+The default shell on most systems is bash. While bash is a perfectly fine shell, zsh is more customizable, faster (so they say) and has some amazing plugins. It does everything bash does and comes pre-installed on any Mac. It's an outdated version though, so you want to use homebrew to install the latest version.
 
 ```
 brew install zsh
@@ -15,7 +15,7 @@ Zsh has seen wide adoption by developers looking to improve their interactive sh
 
 [oh-my-zsh](http://ohmyz.sh/) is a community-driven framework for managing your zsh configuration. Includes 120+ optional plugins (rails, git, OSX, hub, capistrano, brew, ant, macports, etc), over 120 themes to spice up your morning, and an auto-update tool so that makes it easy to keep up with the latest updates from the community.
 
-This repo is forket from [@robbyrussell](https://github.com/robbyrussell/oh-my-zsh) where i have added custom themes and plugins. Feel free to clone either versions but i will explain later on in details the things i have added in this repo as i constantly follow the new features in the pull requests from the main repo and incorporate useful things in here.
+This repo is forked from [@robbyrussell](https://github.com/robbyrussell/oh-my-zsh) where i have added custom themes and plugins. Feel free to clone either versions but i will explain later on in details the things i have added in this repo as i constantly follow the new features in the pull requests from the main repo and incorporate useful things in here.
 
 ### Installation 
 
@@ -200,4 +200,4 @@ Due to the fact that the original repo's maintenance is not active, i have decid
 - [Zsh Reference Card](http://www.bash2zsh.com/zsh_refcard/refcard.pdf)
 - [Badassify your terminal and shell](http://jilles.me/badassify-your-terminal-and-shell/)
 - [My Extravagant Zsh Prompt](http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/)
-- [My favourite Zsh features](http://code.joejag.com/2014/why-zsh.html)
+- [My favorite Zsh features](http://code.joejag.com/2014/why-zsh.html)
