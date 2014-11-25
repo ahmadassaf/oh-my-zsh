@@ -189,6 +189,21 @@ Due to the fact that the original repo's maintenance is not active, i have decid
 - `git.plugin.zsh` added `gdt` alias to launch git difftool
 - `go.plugin.zsh` **[NEW]**
 
+#### zsh-syntax-highlighting
+
+`zsh-syntax-highlighting` is inspired by Fish's syntax highlighting (another shell). It tells you if a command is valid before you hit the enter key.
+
+To install it run:
+
+`cd ~/.oh-my-zsh && git clone git://github.com/zsh-users/zsh-syntax-highlighting.git `
+All that's left is enabling it. Fire up that editor again and open `~/.zshrc`and add the following line to the end of the file.
+
+`source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh`  
+
+Restart your terminal by running `reload` or `source ~/.zshrc` for the changes to take effect.
+
+**NOTE** `zsh-syntax-highlighting` can be installed automatically via the main installation script in my main [configurationn](http://github.com/ahmadassaf/configurations) repository. 
+
 ### Themes
 
 - Added cobalt3 theme `cobalt3.zsh.theme` [screenshot below]
