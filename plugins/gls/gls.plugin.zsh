@@ -4,9 +4,9 @@
 if $(gls &>/dev/null)
 then
   #alias ls="gls -F --color"
-  alias l="gls -lAh --color"
-  alias ll="gls -l --color"
-  alias la='gls -A --color'
+  alias l="gls -lAhX --color"
+  alias ll="gls -lX --color"
+  alias la='gls -lAX --color'
 fi
 
 # dealing with BSD od (different to GNU od)
