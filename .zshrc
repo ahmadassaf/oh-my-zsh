@@ -11,7 +11,7 @@ ZSH_THEME="cobalt3"
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment the following line if you want to change the command execution time
@@ -26,7 +26,7 @@ ZSH_THEME="cobalt3"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(gls editors git brew brew-cask coffee cp django emacs gem git-flow heroku npm node osx pyenv python scala sublime tmux)
+plugins=(k gls editors git brew brew-cask coffee cp django emacs gem git-flow heroku npm node osx pyenv python scala sublime tmux)
 
 # User configuration
 
@@ -34,6 +34,9 @@ export PATH="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
+
+# ANSI color codes are notoriously non-portable
+export TERM='xterm-256color'
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
