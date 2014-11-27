@@ -152,6 +152,9 @@ compdef _git gcl=git-config
 # Add
 alias ga='git add'
 compdef _git ga=git-add
+# Add --all
+alias gaa='git add --all'
+compdef _git gaa=git-add-all
 # Merge
 alias gm='git merge'
 compdef _git gm=git-merge

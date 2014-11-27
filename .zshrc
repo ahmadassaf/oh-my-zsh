@@ -4,8 +4,8 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded. i.e. theunraveler wedisagree kphoen gozilla soren
-ZSH_THEME="cobalt3"
+# time that oh-my-zsh is loaded. i.e. cobalt3 theunraveler wedisagree kphoen gozilla soren
+ZSH_THEME="bullet-train"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -84,3 +84,4 @@ COMPLETION_WAITING_DOTS="true"
 alias reload="source ~/.zshrc"
 
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.oh-my-zsh/q.zsh
