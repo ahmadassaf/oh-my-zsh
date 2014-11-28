@@ -84,4 +84,3 @@ COMPLETION_WAITING_DOTS="true"
 alias reload="source ~/.zshrc"
 
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.oh-my-zsh/q.zsh

@@ -3,7 +3,7 @@
 
 The default shell on most systems is bash. While bash is a perfectly fine shell, zsh is more customizable, faster (so they say) and has some amazing plugins. It does everything bash does and comes pre-installed on any Mac. It's an outdated version though, so you want to use homebrew to install the latest version.
 
-```
+```shell
 brew install zsh
 ```
 
@@ -69,7 +69,7 @@ If you would like to override the functionality of a plugin distributed with oh-
 
 The main zsh profile is customized with the plugins and theme of my chose as well as some PATH values. You can always change whatever you want:
 
-```
+```shell
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
