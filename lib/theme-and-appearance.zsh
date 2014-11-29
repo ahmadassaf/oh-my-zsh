@@ -1,6 +1,10 @@
 # ls colors
 autoload colors; colors;
 
+
+# ANSI color codes are notoriously non-portable
+export TERM='xterm-256color'
+
 #export LS_COLORS
 export LSCOLORS="Exfxcxdxbxegedabagacad"
 
@@ -47,3 +51,6 @@ setopt prompt_subst
 
 # Enabling dircolors coloring
 eval `gdircolors -b ~/.dircolors`
+
+# If we have grc enabled this is used to add coloring to various commands
+source "`brew --prefix grc`/etc/grc.bashrc"

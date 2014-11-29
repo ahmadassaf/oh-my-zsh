@@ -35,9 +35,6 @@ export PATH="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/bin
 
 source $ZSH/oh-my-zsh.sh
 
-# ANSI color codes are notoriously non-portable
-export TERM='xterm-256color'
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 

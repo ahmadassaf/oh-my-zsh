@@ -1,7 +1,7 @@
 
 # ZSH
 
-The default shell on most systems is bash. While bash is a perfectly fine shell, zsh is more customizable, faster (so they say) and has some amazing plugins. It does everything bash does and comes pre-installed on any Mac. It's an outdated version though, so you want to use homebrew to install the latest version.
+The default shell on most systems is bash. While bash is a perfectly fine shell, zsh is more customizable, faster (so they say) and has some amazing plugins. It does everything bash does and comes pre-installed on any Mac. It's an outdated version though, so you want to use Homebrew to install the latest version.
 
 ```shell
 brew install zsh
@@ -107,6 +107,9 @@ export PATH="/Library/Java/JavaVirtualMachines/jdk1.8.0_20.jdk/Contents/Home/bin
 
 source $ZSH/oh-my-zsh.sh
 
+# ANSI color codes are notoriously non-portable
+export TERM='xterm-256color'
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -188,6 +191,7 @@ Due to the fact that the original repo's maintenance is not active, i have decid
     + Unpause a paused container
 - `git.plugin.zsh` added `gdt` alias to launch git difftool
 - `go.plugin.zsh` **[NEW]**
+- `gls.plugin.zsh` **[NEW]**
 - `lib/grep.sh` Change to alias and rmove decaprated GREP_COLOR [Pull Request Ref.](https://github.com/robbyrussell/oh-my-zsh/pull/3341)
 - `chruby.plugin.zsh` Fix chruby plugin to not complain if chruby is *not* installed [Pull Request Ref.](https://github.com/robbyrussell/oh-my-zsh/pull/3338)
 
@@ -208,8 +212,109 @@ Restart your terminal by running `reload` or `source ~/.zshrc` for the changes t
 
 ### Themes
 
-- Added cobalt3 theme `cobalt3.zsh.theme` [screenshot below]
+- Added cobalt3 theme `cobalt3.zsh-theme` [screenshot below]
 ![zsh cobalt3 Theme](https://github.com/ahmadassaf/configurations/blob/master/screenshots/oh-my-zsh_theme_cobalt3.png)
+- Added bullet train `bullet-train.zsh-theme` [screenshot below]
+![bullet train Theme](https://github.com/ahmadassaf/configurations/blob/master/screenshots/oh-my-zsh_theme_bullet.png)
+
+I am currently using `bullet-train` theme. It is based on the nice [powerline](https://github.com/Lokaltog/powerline) visual styling. Installing powerline is done by:
+
+```shell
+pip install [--user] git+git://github.com/Lokaltog/powerline
+```
+
+**Important Notes** 
+
+- I haven't included `powerline` in my main installation script, so if you wish to have it, then please proceed with installing it separately with the fonts dependency.
+- The `--user` parameter should be removed if you got an error while installation especially if you have python installed via Homebrew.
+- A dependency is the [powerline fonts](https://github.com/ahmadassaf/powerline-fonts) pack. Installation instructions can be found directly in the repository.
+
+### Fancy `vim` as well ?
+
+For `vim` i have also included the [powerline](https://github.com/Lokaltog/powerline) visual styling which will include a status line.
+
+after installing powerline enable it by adding to the `.vimrc`:
+
+```shell
+set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
+```
+ 
+This can be change **depending on the path to the `python` directory**
+
+## A better `ls` for Bash Terminal
+
+The default `ls` on OS X comes from BSD and compared to the GNU/Linux alternative is slightly lacking when it comes to changing how things look – so what I like to do is replace it with the GNU `ls`
+
+To install that in OS X you can easily do that via the `coreutils` brew recipe (it is included in my `.brefile`). The default `ls` and other tools will have a ‘g’ prefix – i.e. `ls` would be `gls`. But **why ?!**
+
+Well i simply like to have a structured view over directories, so when i do an `ls` i would like to see things grouped by type, so files for each type are underneath each other. For example:
+
+![bash-it structured ls](https://github.com/ahmadassaf/configurations/blob/master/screenshots/oh-my-zsh_structured_ls.png)
+
+You can notice how folders are on top, followed by the `.pdf` files and then the `.sparql` and so on. This is done via the `gls -X` parameter.
+
+### Activating type-based `ls` 
+
+I have created a `gls.plugin.zsh` alias file. The file contains aliases that convert all of my `ls` aliases into `gls` ones. If you would like to keep them separate then simply do not activate this alias and you will have to call always `gls` instead. Activating the plugin like any other via adding it to the list in the `.zshrc` file:
+
+```shell
+plugins=(k gls editors git brew ...)
+```
+
+## But what about the colors?
+
+Its true that by now, we are able only to group similar types together, but this will not really improve the readability of the result. To make things better, we need to assign different color values for groups of types. For that, we need to use [dircolors](http://github.com/ahmadassaf/dircolors).
+
+The installation is done automatically via this script if you wish so, but go ahead to the [repo](http://github.com/ahmadassaf/dircolors) and check the readme for manual installation configuration.
+
+## This looks cool, I want more ... 
+
+Well then, behold the [Generic Colouriser](http://kassiopeia.juls.savba.sk/~garabik/software/grc/README.txt). It is a great utility which can be used for colourising many different types of output and log files. If you installed Homebrew , installing grc is as simple as typing:
+
+```shell
+brew install grc
+```
+
+but hey, don't worry too much, it is already included in my [dotfiles](http://github.com/ahmadassaf/dotfiles).
+
+afterwards, you need to add:
+
+```shell
+# If we have grc enabled this is used to add coloring to various commands
+source "`brew --prefix grc`/etc/grc.bashrc"
+```
+
+I have included this line in `lib\theme-and-appearance.zsh`. 
+
+Now when you use certain commands such as `traceroute`, the output should be colourised:
+
+![bash-it grc](https://github.com/ahmadassaf/configurations/blob/master/screenshots/bash-it_grc.png)
+
+
+## What about normal `ls`
+
+If you don't want all of those fancy settings, then at least you should consider coloring the result of `ls`. This can be done easily as there are some global variables that hold what each type color is. For example, you can specific colors for `directory` `symbolic link` `executable` ... etc.
+
+This is done by enabling `CLICOLOR` and defining `LS_COLORS`:
+
+```shell
+# ANSI color codes are notoriously non-portable
+export TERM='xterm-256color'
+export LS_COLORS=Exfxcxdxbxegedabagacad
+```
+
+Enabling `ls` color can now be easily enabled with the `-color` parameter in Mac OSX and `-G` in Linux. i.e. `ls -l --color`
+
+**NOTE** for Mac OSX you have to replace the `e` character in color codes with `033` for the colors and styles like in [here](http://misc.flogisoft.com/bash/tip_colors_and_formatting) to work.
+
+For more information about alias coloring, these resources are very helpful:
+
+- [Bash tips: Colors and formatting](http://misc.flogisoft.com/bash/tip_colors_and_formatting)
+- [How to Fix Colors on Mac OSX Terminal](http://it.toolbox.com/blogs/lim/how-to-fix-colors-on-mac-osx-terminal-37214)
+- [Setting LS_COLORS colors of directory listings in bash terminal](http://leocharre.com/articles/setting-ls_colors-colors-of-directory-listings-in-bash-terminal/)
+- [OS X Lion Terminal Colours](http://backup.noiseandheat.com/blog/2011/12/os-x-lion-terminal-colours/)
+- [A better ls for Mac OS X](http://hocuspokus.net/2008/01/a-better-ls-for-mac-os-x/)
+
 
 # References
 
