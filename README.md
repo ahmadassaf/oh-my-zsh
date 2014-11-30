@@ -194,8 +194,10 @@ Due to the fact that the original repo's maintenance is not active, i have decid
     + `glvp`  provide a one-line git log alias that displays: Commit ID, Author, Time, Branch, Commit message
 - `go.plugin.zsh` **[NEW]**
 - `gls.plugin.zsh` **[NEW]**
+- `gulp.plugin.zsh` **[NEW]**
 - `lib/grep.sh` Change to alias and rmove decaprated GREP_COLOR [Pull Request Ref.](https://github.com/robbyrussell/oh-my-zsh/pull/3341)
 - `chruby.plugin.zsh` Fix chruby plugin to not complain if chruby is *not* installed [Pull Request Ref.](https://github.com/robbyrussell/oh-my-zsh/pull/3338)
+- `_vagrant` Added Vagrant rsync + rsync-auto autocompletion [Pull Request Ref.](https://github.com/robbyrussell/oh-my-zsh/pull/2757)
 
 #### zsh-syntax-highlighting
 
