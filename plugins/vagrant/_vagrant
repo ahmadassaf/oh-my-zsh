@@ -1,4 +1,4 @@
-#compdef vagrant 
+#compdef vagrant
 #autoload
 
 # vagrant zsh completion
@@ -19,6 +19,8 @@ _1st_arguments=(
     'provision:Run the provisioner'
     'reload:Reload the vagrant environment'
     'resume:Resumes a suspend vagrant environment'
+    'rsync:Watches all local directories of any rsync synced folders'
+    'rsync-auto:Initiates an rsync transfer'
     'share:Shares the Vagrant environment and allows remote access'
     'ssh:SSH into the currently running environment'
     'ssh-config:outputs .ssh/config valid syntax for connecting to this environment via ssh'
@@ -78,7 +80,7 @@ __vagrant-box ()
        (options)
            case $line[1] in
                (repackage|remove)
-                   _arguments ':feature:__box_list' 
+                   _arguments ':feature:__box_list'
                ;;
            esac
        ;;
@@ -107,7 +109,7 @@ case $state in
   (options)
     case $line[1] in
       (help)
-         _arguments ':feature:__task_list' 
+         _arguments ':feature:__task_list'
       ;;
 
       (box)
