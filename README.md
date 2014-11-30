@@ -189,7 +189,9 @@ Due to the fact that the original repo's maintenance is not active, i have decid
     + Log out from a docker registry server
     + Pause all processes within a container
     + Unpause a paused container
-- `git.plugin.zsh` added `gdt` alias to launch git difftool
+- `git.plugin.zsh`
+    + `gdt` alias to launch git difftool
+    + `glvp`  provide a one-line git log alias that displays: Commit ID, Author, Time, Branch, Commit message
 - `go.plugin.zsh` **[NEW]**
 - `gls.plugin.zsh` **[NEW]**
 - `lib/grep.sh` Change to alias and rmove decaprated GREP_COLOR [Pull Request Ref.](https://github.com/robbyrussell/oh-my-zsh/pull/3341)
