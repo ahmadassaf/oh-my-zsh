@@ -50,7 +50,7 @@ compdef _git gss=git-status
 alias gsb='git status -sb'
 compdef _git gsb=git-status
 alias glvp='git log --pretty="%Cred%h%Creset [%Cgreen%an %Creset %C(cyan)%ar%Creset]: %Cred%d%Creset %C(yellow)%s%Creset" --graph'
-ompdef _git glvp=git-log
+compdef _git glvp=git-log
 # Diff
 alias gd='git diff'
 compdef _git gd=git-diff
