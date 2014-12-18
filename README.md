@@ -201,6 +201,7 @@ Due to the fact that the original repo's maintenance is not active, i have decid
 - `chruby.plugin.zsh` Fix chruby plugin to not complain if chruby is *not* installed [Pull Request Ref.](https://github.com/robbyrussell/oh-my-zsh/pull/3338)
 - `_vagrant` Added Vagrant rsync + rsync-auto autocompletion [Pull Request Ref.](https://github.com/robbyrussell/oh-my-zsh/pull/2757)
 - `.git-extras.plugin.zsh` The git-extras plugin has not been updated for long, so I do it to catch up with the development of git-extras [Pull Request Ref.](https://github.com/robbyrussell/oh-my-zsh/pull/3408)
+- `battery.plugin.zsh` Modified battery gauge to allow custom chars [Pull Request Ref.](https://github.com/robbyrussell/oh-my-zsh/pull/3405)
 
 #### zsh-syntax-highlighting
 
