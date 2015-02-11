@@ -1,5 +1,5 @@
 # ls colors
-autoload colors; colors;
+autoload -U colors; colors;
 
 
 # ANSI color codes are notoriously non-portable
@@ -28,7 +28,7 @@ fi
 #setopt no_beep
 setopt auto_cd
 setopt multios
-setopt cdablevarS
+setopt cdablevars
 
 if [[ x$WINDOW != x ]]
 then
@@ -48,9 +48,12 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""               # Text to display if the branch is c
 
 # Setup the prompt with pretty colors
 setopt prompt_subst
+<<<<<<< HEAD
 
 # Enabling dircolors coloring
 eval `gdircolors -b ~/.dircolors`
 
 # If we have grc enabled this is used to add coloring to various commands
 source "`brew --prefix grc`/etc/grc.bashrc"
+=======
+>>>>>>> ef7e53a78d0e4196c2d1e6e5b268209759d51753
