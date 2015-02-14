@@ -48,12 +48,10 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""               # Text to display if the branch is c
 
 # Setup the prompt with pretty colors
 setopt prompt_subst
-<<<<<<< HEAD
 
 # Enabling dircolors coloring
 eval `gdircolors -b ~/.dircolors`
 
 # If we have grc enabled this is used to add coloring to various commands
 source "`brew --prefix grc`/etc/grc.bashrc"
-=======
->>>>>>> ef7e53a78d0e4196c2d1e6e5b268209759d51753
+
