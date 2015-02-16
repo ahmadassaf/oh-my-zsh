@@ -10,6 +10,7 @@ alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 alias ls="command ls ${colorflag}"
 alias l='ls -a'
 alias l1='ls -1'
+alias llt="ls -lFt ${colorflag}"
 
 alias _="sudo"
 # Enable aliases to be sudo’ed
