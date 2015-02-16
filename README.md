@@ -323,7 +323,7 @@ For more information about alias coloring, these resources are very helpful:
 - [OS X Lion Terminal Colours](http://backup.noiseandheat.com/blog/2011/12/os-x-lion-terminal-colours/)
 - [A better ls for Mac OS X](http://hocuspokus.net/2008/01/a-better-ls-for-mac-os-x/)
 
-# Using Homebrew to manage Node.js and io.js installs on OSX
+### Using Homebrew to manage Node.js and io.js installs on OSX
 
 Having both Node.js and io.js installed with NVM was giving me a load of problems, mainly with npm. The best way is to have them installed via `homebrew`. They are already included in my [`brewfile`](https://github.com/ahmadassaf/dotfiles/blob/master/.brewfile.sh).
 
