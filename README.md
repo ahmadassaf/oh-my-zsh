@@ -323,6 +323,31 @@ For more information about alias coloring, these resources are very helpful:
 - [OS X Lion Terminal Colours](http://backup.noiseandheat.com/blog/2011/12/os-x-lion-terminal-colours/)
 - [A better ls for Mac OS X](http://hocuspokus.net/2008/01/a-better-ls-for-mac-os-x/)
 
+# Using Homebrew to manage Node.js and io.js installs on OSX
+
+Having both Node.js and io.js installed with NVM was giving me a load of problems, mainly with npm. The best way is to have them installed via `homebrew`. They are already included in my [`brewfile`](https://github.com/ahmadassaf/dotfiles/blob/master/.brewfile.sh).
+
+So we have both Node.js and io.js installed, however iojs is only linked to the command `iojs` in our PATH.
+
+So, we can unlink node: `brew unlink node`, and link iojs: `brew link --force iojs` this will link io.js to `node` and other commands.
+
+Now when we need to use Node.js rather than io.js, we can just
+
+`$ brew unlink iojs && brew link node`
+
+To go back to io.js
+
+`$ brew unlink node && brew link --force iojs`
+
+And we can alias these (add to .bashrc / .zshrc)
+
+```bash
+alias usenode='brew unlink iojs && brew link node && echo Using Node.js'
+alias useio='brew unlink node && brew link --force iojs && echo Using io.js'
+```
+
+Now we can `$ usenode` when we want to use Node.js, and `$ useio` when we want to use io.js
+
 
 # References
 
@@ -331,3 +356,4 @@ For more information about alias coloring, these resources are very helpful:
 - [Badassify your terminal and shell](http://jilles.me/badassify-your-terminal-and-shell/)
 - [My Extravagant Zsh Prompt](http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/)
 - [My favorite Zsh features](http://code.joejag.com/2014/why-zsh.html)
+- [Configuring IO.js with Node](https://gist.github.com/phelma/ce4eeeedb8fb9a9e8e63#file-gistfile1-md)
