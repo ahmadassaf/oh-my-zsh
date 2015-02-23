@@ -196,6 +196,38 @@ compdef _git gwch=git-whatchanged
 alias glp="_git_log_prettily"
 compdef _git glp=git-log
 # GUI
+alias gss='git status -s'
+compdef _git gss=git-status
+alias ga='git add'
+compdef _git ga=git-add
+alias gap='git add --patch'
+alias gaa='git add --all'
+alias gm='git merge'
+compdef _git gm=git-merge
+alias grh='git reset HEAD'
+alias grhh='git reset HEAD --hard'
+alias gclean='git reset --hard && git clean -dfx'
+alias gwc='git whatchanged -p --abbrev-commit --pretty=medium'
+
+# Sign and verify commits with GPG
+alias gcs='git commit -S'
+compdef _git gcs=git-commit
+alias gsps='git show --pretty=short --show-signature'
+compdef _git gsps=git-show
+
+# Sign and verify tags with GPG
+alias gts='git tag -s'
+compdef _git gts=git-tag
+alias gvt='git verify-tag'
+compdef _git gvt=git verify-tag
+
+#remove the gf alias
+#alias gf='git ls-files | grep'
+
+alias gpoat='git push origin --all && git push origin --tags'
+alias gmt='git mergetool --no-prompt'
+compdef _git gmt=git-mergetool
+
 alias gg='git gui citool'
 alias gga='git gui citool --amend'
 alias gk='gitk --all --branches'
@@ -266,6 +298,7 @@ alias gignore='git update-index --assume-unchanged'
 alias gunignore='git update-index --no-assume-unchanged'
 # List temporarily ignored files
 alias gignored='git ls-files -v | grep "^[[:lower:]]"'
+
 # Grep list of files in the index
 function gfg() { git ls-files | grep $@ }
 compdef gfg=grep
