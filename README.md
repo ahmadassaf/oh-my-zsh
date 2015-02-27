@@ -17,7 +17,7 @@ Zsh has seen wide adoption by developers looking to improve their interactive sh
 
 This repo is forked from [@robbyrussell](https://github.com/robbyrussell/oh-my-zsh) where i have added custom themes and plugins. Feel free to clone either versions but i will explain later on in details the things i have added in this repo as i constantly follow the new features in the pull requests from the main repo and incorporate useful things in here.
 
-### Installation 
+### Installation
 
 oh-my-zsh requires a minimum 4.3.9 version of Zsh.
 I recommend if you would like to copy my settings is to follow instructions in my main [configuration repo](http://github.com/ahmadassaf/Configurations). However, if you wish to have a stand-alone installation then you can follow these instructions:
@@ -292,7 +292,7 @@ afterwards, you need to add:
 source "`brew --prefix grc`/etc/grc.bashrc"
 ```
 
-I have included this line in `lib\theme-and-appearance.zsh`. 
+I have included this line in `lib\theme-and-appearance.zsh`.
 
 Now when you use certain commands such as `traceroute`, the output should be colourised:
 
