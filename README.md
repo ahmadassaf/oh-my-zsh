@@ -51,7 +51,7 @@ I am using both terminal and iTerm2. I have set up my terminal to use bash and m
 
 ### Plugins
 
-Enable the plugins you want in your `~/.zshrc`. 
+Enable the plugins you want in your `~/.zshrc`.
 Take a look at the `plugins/`directory and the wiki to see what’s available). Example: `plugins=(git osx ruby)`
 
 ### Themes
@@ -181,7 +181,7 @@ Due to the fact that the original repo's maintenance is not active, i have decid
 ### Plugins
 
 - `aliases.zsh` i have added a whole bunch of aliases that i have been using in bash as well. In fact, the `aliases` file is built automatically by concatenating several alias files configured in my [bash-it repo](http://github.com/ahmadassaf/bash-it).
-- `ant.plugin.zsh` Improved ant completion [Pull Request Ref.](https://github.com/robbyrussell/oh-my-zsh/pull/3329) 
+- `ant.plugin.zsh` Improved ant completion [Pull Request Ref.](https://github.com/robbyrussell/oh-my-zsh/pull/3329)
 - `_brew` Remove deprecated brew commands, update core commands [Pull Request Ref.](https://github.com/robbyrussell/oh-my-zsh/pull/3303)
 - `_docker` Add docker useful alias [Pull Request Ref.](https://github.com/robbyrussell/oh-my-zsh/pull/3289)
     + Create a new container
@@ -212,11 +212,11 @@ To install it run:
 `cd ~/.oh-my-zsh && git clone git://github.com/zsh-users/zsh-syntax-highlighting.git `
 All that's left is enabling it. Fire up that editor again and open `~/.zshrc`and add the following line to the end of the file.
 
-`source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh`  
+`source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh`
 
 Restart your terminal by running `reload` or `source ~/.zshrc` for the changes to take effect.
 
-**NOTE** `zsh-syntax-highlighting` can be installed automatically via the main installation script in my main [configurationn](http://github.com/ahmadassaf/configurations) repository. 
+**NOTE** `zsh-syntax-highlighting` can be installed automatically via the main installation script in my main [configurationn](http://github.com/ahmadassaf/configurations) repository.
 
 ### Themes
 
@@ -231,7 +231,7 @@ I am currently using `bullet-train` theme. It is based on the nice [powerline](h
 pip install [--user] git+git://github.com/Lokaltog/powerline
 ```
 
-**Important Notes** 
+**Important Notes**
 
 - I haven't included `powerline` in my main installation script, so if you wish to have it, then please proceed with installing it separately with the fonts dependency.
 - The `--user` parameter should be removed if you got an error while installation especially if you have python installed via Homebrew.
@@ -246,7 +246,7 @@ after installing powerline enable it by adding to the `.vimrc`:
 ```shell
 set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
 ```
- 
+
 This can be change **depending on the path to the `python` directory**
 
 ## A better `ls` for Bash Terminal
@@ -261,7 +261,7 @@ Well i simply like to have a structured view over directories, so when i do an `
 
 You can notice how folders are on top, followed by the `.pdf` files and then the `.sparql` and so on. This is done via the `gls -X` parameter.
 
-### Activating type-based `ls` 
+### Activating type-based `ls`
 
 I have created a `gls.plugin.zsh` alias file. The file contains aliases that convert all of my `ls` aliases into `gls` ones. If you would like to keep them separate then simply do not activate this alias and you will have to call always `gls` instead. Activating the plugin like any other via adding it to the list in the `.zshrc` file:
 
@@ -275,7 +275,7 @@ Its true that by now, we are able only to group similar types together, but this
 
 The installation is done automatically via this script if you wish so, but go ahead to the [repo](http://github.com/ahmadassaf/dircolors) and check the readme for manual installation configuration.
 
-## This looks cool, I want more ... 
+## This looks cool, I want more ...
 
 Well then, behold the [Generic Colouriser](http://kassiopeia.juls.savba.sk/~garabik/software/grc/README.txt). It is a great utility which can be used for colourising many different types of output and log files. If you installed Homebrew , installing grc is as simple as typing:
 
