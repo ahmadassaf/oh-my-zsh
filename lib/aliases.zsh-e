@@ -1,3 +1,6 @@
+cite 'about-alias'
+about-alias 'general aliases'
+
 # List directory contents
 alias sl=ls
 # List all files colorized in long format
