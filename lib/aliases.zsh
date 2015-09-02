@@ -79,7 +79,6 @@ alias mysql="mysql --host localhost"
 alias mongod="mongod --dbpath ~/Applications/mongodb/data/db/"
 alias protege="sh /Applications/Protege\ 5.0/run.sh"
 
-
 # Control Plex Media Server
 alias startPlex="sudo launchctl load /Library/LaunchDaemons/com.plex.plexconnect.bash.plist"
 alias stopPlex="sudo launchctl unload /Library/LaunchDaemons/com.plex.plexconnect.bash.plist"
