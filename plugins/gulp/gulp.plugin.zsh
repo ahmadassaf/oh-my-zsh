@@ -1,14 +1,10 @@
 #!/usr/bin/env zsh
 
 #
-# gulp-autocompletion-zsh
-#
 # Autocompletion for your gulp.js tasks
 #
 # Copyright(c) 2014 André König <andre.koenig@posteo.de>
 # MIT Licensed
-#
-
 #
 # André König
 # Github: https://github.com/akoenig
