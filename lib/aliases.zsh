@@ -11,6 +11,7 @@ alias ls="command ls --color"
 alias l='ls -a'
 alias l1='ls -1'
 alias llt="ls -lFt --color"
+alias count="ls -1 | wc -l"
 
 alias _="sudo"
 # Enable aliases to be sudo’ed
@@ -41,6 +42,9 @@ alias -- -="cd -"
 
 # Shell History
 alias h='history'
+
+# Rapid access to OVH server
+alias ovh='ssh 149.202.53.241'
 
 # Tree
 if [ ! -x "$(which tree 2>/dev/null)" ]
