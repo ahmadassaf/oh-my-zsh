@@ -26,7 +26,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(k gls editors brew brew-cask coffee cp django emacs gem git git-extras git-remote-branch git-flow heroku npm node osx pyenv python scala sublime tmux)
+plugins=(auto-repos k gls editors brew brew-cask coffee cp django emacs gem git git-extras git-remote-branch git-flow heroku npm node osx pyenv python scala sublime tmux)
 
 # User configuration
 
