@@ -26,8 +26,12 @@ alias edit="$EDITOR"
 alias pager="$PAGER"
 alias q='exit'
 alias irc="$IRC_CLIENT"
-alias rb='ruby'
 alias screenshot='webkit2png'
+
+# Language aliases
+alias rb='ruby'
+alias py='python'
+alias ipy='ipython'
 
 # Pianobar can be found here: http://github.com/PromyLOPh/pianobar/
 alias piano='pianobar'
@@ -43,9 +47,6 @@ alias -- -="cd -"
 # Shell History
 alias h='history'
 
-# Rapid access to OVH server
-alias ovh='ssh 149.202.53.241'
-
 # Tree
 if [ ! -x "$(which tree 2>/dev/null)" ]
 then
@@ -53,14 +54,24 @@ then
 fi
 
 # Directory
-alias	md='mkdir -p'
-alias	rd='rmdir'
+alias md='mkdir -p'
+alias rd='rmdir'
 
 which gshuf &> /dev/null
 if [ $? -eq 0 ]
 then
   alias shuf=gshuf
 fi
+# Display whatever file is regular file or folder
+catt() {
+  for i in "$@"; do
+    if [ -d "$i" ]; then
+      ls "$i"
+    else
+      cat "$i"
+    fi
+  done
+}
 # Shortcuts
 alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
@@ -88,9 +99,18 @@ alias startPlex="sudo launchctl load /Library/LaunchDaemons/com.plex.plexconnect
 alias stopPlex="sudo launchctl unload /Library/LaunchDaemons/com.plex.plexconnect.bash.plist"
 alias checkPlex="sudo launchctl list | grep plexconnect"
 
+#Apache Server Aliases
+alias apacheRestart="sudo service apache2 restart"
+
 # OSX Yosemite Specific
 alias flushdns="sudo discoveryutil mdnsflushcache;sudo discoveryutil udnsflushcaches;say flushed"
 
 # Switch between Node and IO.js
 alias usenode='brew unlink iojs && brew link node && echo Using Node.js'
 alias useio='brew unlink node && brew link --force iojs && echo Using io.js'
+
+# Rapid access to OVH server
+alias ovh='ssh 149.202.53.241'
+
+# Beamery documentation hub
+alias dochub="ssh mcgilly@52.31.46.45"
