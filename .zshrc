@@ -81,4 +81,9 @@ COMPLETION_WAITING_DOTS="true"
 alias reload="source ~/.zshrc"
 
 source ~/.oh-my-zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Add RVM
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# Add NPM Global Modules Path
+export PATH="$HOME/.npm/bin:$PATH"
