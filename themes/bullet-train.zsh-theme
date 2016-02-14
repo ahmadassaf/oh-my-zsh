@@ -74,7 +74,6 @@ ZSH_THEME_GIT_PROMPT_DIVERGED=" ⬍"
 # ------------------------------------------------------------------------------
 
 CURRENT_BG='NONE'
-SEGMENT_SEPARATOR=''
 
 # Begin a segment
 # Takes two arguments, background and foreground. Both can be omitted,
