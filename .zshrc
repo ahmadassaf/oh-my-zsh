@@ -91,3 +91,6 @@ export PATH="$HOME/.npm/bin:$PATH"
 # Add NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Add RabbitMQ
+export PATH="$PATH:/usr/local/sbin"
