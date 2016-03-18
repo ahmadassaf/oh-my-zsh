@@ -103,7 +103,7 @@ alias checkPlex="sudo launchctl list | grep plexconnect"
 alias apacheRestart="sudo service apache2 restart"
 
 # OSX Yosemite Specific
-alias flushdns="sudo discoveryutil mdnsflushcache;sudo discoveryutil udnsflushcaches;say flushed"
+alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder; say DNS cache flushed"
 
 # Switch between Node and IO.js
 alias usenode='brew unlink iojs && brew link node && echo Using Node.js'
