@@ -188,6 +188,11 @@ function git_compare_version() {
   echo 0
 }
 
+# print the list of branches with their respective created date sorted
+function git_branches() {
+    for k in `git branch -r | perl -pe 's/^..(.*?)( ->.*)?$/\1/'`; do echo -e `git show --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" $k -- | head -n 1`\\t$k; done | sort -r
+}
+
 # Outputs the name of the current user
 # Usage example: $(git_current_user_name)
 function git_current_user_name() {

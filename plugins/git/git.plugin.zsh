@@ -74,6 +74,9 @@ alias gcount='git shortlog -sn'
 compdef gcount=git
 alias gcp='git cherry-pick'
 alias gcs='git commit -S'
+alias glazy="git add --all; git commit -m "$(curl -s http://whatthecommit.com/index.txt)";"
+alias tasks='grep --exclude-dir=.git --exclude-dir=node_modules --exclude-dir=bower_components -rEI "TODO|FIXME" . 2>/dev/null'
+alias ghistory="git reflog show | grep '}: commit' | nl | sort -nr | nl | sort -nr | cut --fields=1,3 | sed s/commit://g | sed -e 's/HEAD*@{[0-9]*}://g'"
 
 alias gd='git diff'
 alias gdca='git diff --cached'
