@@ -94,3 +94,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Add RabbitMQ
 export PATH="$PATH:/usr/local/sbin"
+
+# Add oh-my-git shell
+source ~/.oh-my-git/prompt.sh
