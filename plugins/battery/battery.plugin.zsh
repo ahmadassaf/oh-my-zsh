@@ -67,12 +67,12 @@ if [[ "$OSTYPE" = darwin* ]] ; then
 elif [[ $(uname) == "Linux"  ]] ; then
 
   function battery_is_charging() {
-    ! [[ $(acpi 2&>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]]
+    ! [[ $(acpi 2>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]]
   }
 
   function battery_pct() {
     if (( $+commands[acpi] )) ; then
-      echo "$(acpi | cut -f2 -d ',' | tr -cd '[:digit:]')"
+      echo "$(acpi 2>/dev/null | cut -f2 -d ',' | tr -cd '[:digit:]')"
     fi
   }
 
@@ -85,14 +85,14 @@ elif [[ $(uname) == "Linux"  ]] ; then
   }
 
   function battery_time_remaining() {
-    if [[ $(acpi 2&>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]] ; then
-      echo $(acpi | cut -f3 -d ',')
+    if [[ $(acpi 2>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]] ; then
+      echo $(acpi 2>/dev/null | cut -f3 -d ',')
     fi
   }
 
   function battery_pct_prompt() {
     b=$(battery_pct_remaining)
-    if [[ $(acpi 2&>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]] ; then
+    if [[ $(acpi 2>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]] ; then
       if [ $b -gt 50 ] ; then
         color='green'
       elif [ $b -gt 20 ] ; then
@@ -135,11 +135,6 @@ function battery_level_gauge() {
 
   local battery_remaining_percentage=$(battery_pct);
 
-  if [[ $1 ]] && [[ $2 ]]; then
-    filled_symbol=${BATTERY_GAUGE_FILLED_SYMBOL:-$1};
-    empty_symbol=${BATTERY_GAUGE_EMPTY_SYMBOL:-$2};
-  fi
-
   if [[ $battery_remaining_percentage =~ [0-9]+ ]]; then
     local filled=$(((( $battery_remaining_percentage + $gauge_slots - 1) / $gauge_slots)));
     local empty=$(($gauge_slots - $filled));
@@ -154,10 +149,11 @@ function battery_level_gauge() {
     filled_symbol=${BATTERY_UNKNOWN_SYMBOL:-'.'};
   fi
 
-  local charging=' ' && battery_is_charging && charging=$charging_symbol' ';
+  local charging=' ' && battery_is_charging && charging=$charging_symbol;
 
   printf ${charging_color//\%/\%\%}$charging${color_reset//\%/\%\%}${battery_prefix//\%/\%\%}${gauge_color//\%/\%\%}
   printf ${filled_symbol//\%/\%\%}'%.0s' {1..$filled}
   [[ $filled -lt $gauge_slots ]] && printf ${empty_symbol//\%/\%\%}'%.0s' {1..$empty}
   printf ${color_reset//\%/\%\%}${battery_suffix//\%/\%\%}${color_reset//\%/\%\%}
 }
+
