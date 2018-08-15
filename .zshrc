@@ -26,7 +26,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(auto-repos k gls editors brew brew-cask coffee cp django emacs gem git git-extras git-remote-branch git-flow heroku npm node osx pyenv python scala sublime tmux beamery)
+plugins=(k gls editors brew cp git git-extras git-flow heroku npm nvm node osx pyenv python scala sublime tmux beamery go)
 
 # User configuration
 
@@ -88,12 +88,16 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # Add NPM Global Modules Path
 export PATH="$HOME/.npm/bin:$PATH"
 
-# Add NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-
 # Add RabbitMQ
 export PATH="$PATH:/usr/local/sbin"
 
 # Add oh-my-git shell
 source ~/.oh-my-git/prompt.sh
+# added by travis gem
+[ -f /Users/ahmadassaf/.travis/travis.sh ] && source /Users/ahmadassaf/.travis/travis.sh
+
+export BEAMERY_HOME=~/Projects/Beamery/
+export PATH=$PATH:$BEAMERY_HOME/tool-dev-env/env/bin/osx
+
+export GITHUB_USERNAME=ahmadassaf
+export GITRIEVAL_TOKEN=c66c50b8fb773f5c5a9e615c9496ecdd17dab829
