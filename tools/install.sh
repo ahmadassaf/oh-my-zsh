@@ -1,6 +1,42 @@
+# Use colors, but only if connected to a terminal, and that terminal supports them
+
+if which tput >/dev/null 2>&1; then
+    ncolors=$(tput colors)
+fi
+
+if [ -t 1 ] && [ -n "$ncolors" ] && [ "$ncolors" -ge 8 ]; then
+
+    # Reset
+    export NC="\033[0m"       # Text Reset
+
+    # Regular Colors
+    export BLACK="\033[0;30m"        # Black
+    export RED="\033[0;31m"          # Red
+    export GREEN="\033[0;32m"        # Green
+    export YELLOW="\033[0;33m"       # Yellow
+    export BLUE="\033[0;34m"         # Blue
+    export MAGENTA="\033[0;35m"      # magenta
+    export CYAN="\033[0;36m"         # Cyan
+    export WHITE="\033[0;37m"        # White
+
+else
+
+    export NC=""
+    export BLACK=""
+    export RED=""
+    export GREEN=""
+    export YELLOW=""
+    export BLUE=""
+    export MAGENTA=""
+    export CYAN=""
+    export WHITE=""
+
+fi
+
 main() {
 
-  printf "\n\n${YELLOW}
+  printf "\n
+
    ▄██████▄     ▄█    █▄           ▄▄▄▄███▄▄▄▄   ▄██   ▄         ▄███████▄     ▄████████    ▄█    █▄    
 ███    ███   ███    ███        ▄██▀▀▀███▀▀▀██▄ ███   ██▄      ██▀     ▄██   ███    ███   ███    ███   
 ███    ███   ███    ███        ███   ███   ███ ███▄▄▄███            ▄███▀   ███    █▀    ███    ███   
@@ -10,11 +46,8 @@ main() {
 ███    ███   ███    ███        ███   ███   ███ ███   ███      ███▄     ▄█    ▄█    ███   ███    ███   
  ▀██████▀    ███    █▀          ▀█   ███   █▀   ▀█████▀        ▀████████▀  ▄████████▀    ███    █▀    
                                                                                                       
-  ${NC}\n\n
+\n
 "
-  SOURCE_LOCATION="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-  . ${SOURCE_LOCATION}/colors.sh
-
   if ! command -v zsh >/dev/null 2>&1; then
     printf "${YELLOW}Zsh is not installed!${NC} Please install zsh first!\n"
     exit
