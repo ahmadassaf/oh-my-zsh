@@ -105,6 +105,7 @@ main() {
   echo ""
   read -p "$(echo "${RED}Would you like to change your shell to Zsh${NC}") [Y/N] " -n 1 CHANGE_SHELL </dev/tty
   if [[ $CHANGE_SHELL =~ ^[yY]$ ]]; then
+    echo "⚡  Changing shell to zsh"
     # If this user's login shell is not already "zsh", attempt to switch.
     TEST_CURRENT_SHELL=$(expr "$SHELL" : '.*/\(.*\)')
     if [ "$TEST_CURRENT_SHELL" != "zsh" ]; then
