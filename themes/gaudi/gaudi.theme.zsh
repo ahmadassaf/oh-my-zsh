@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 
-GAUDI_FIRST_RUN=${GAUDI_FIRST_RUN:=true}
 GAUDI_ROOT="${ZSH}/themes/gaudi"
 
 source "$GAUDI_ROOT/gaudi.configs.zsh"
@@ -14,12 +13,16 @@ source "$GAUDI_ROOT/lib/hooks.zsh"
 test -z "$TERM" -o "x$TERM" = xdumb && return
 
 gaudi::prompt() {
+  # Must be captured before any other command in prompt is executed
+  # Must be the very first line in all entry prompt functions, or the value
+  # will be overridden by a different command execution - do not move this line!
   RETVAL=$?
+  
   # Should it add a new line before the prompt?
   [[ $GAUDI_PROMPT_ADD_NEWLINE == true ]] && echo ""
   
   gaudi::render_prompt GAUDI_PROMPT_LEFT
-  echo -n "$GAUDI_NEW_LINE$(gaudi_char)"
+  echo "$GAUDI_NEW_LINE$(gaudi_char)"
 }
 
 gaudi::right_prompt() {
@@ -30,6 +33,18 @@ gaudi::right_prompt() {
 # All preparation before drawing prompt should be done here
 gaudi::setup() {
   
+  # Terminal runs something like login -pfl your-username /bin/bash -c exec -la bash <bash path> 
+  # when you create a new shell which lacks the -q flag. The problem is that when opening a new tab 
+  # with "Same Working Directory" enabled, the current directory is searched for .hushlogin. 
+  # Unless you put a .hushlogin in every single directory, it will only see ~/.hushlogin if you open a new tab when you're in ~.
+  # This is in direct conflict with the feature of preserving the current working directory
+  # This checks if we are using the MacOSX Terminal app and clear the screen before that
+  if [[ $TERM_PROGRAM == "Apple_Terminal" ]]  && [[ $GAUDI_ENABLE_HUSHLOGIN == true ]]; then
+    # Clears and reset the lines printed in the terminal
+    printf '\033\143'
+    unset GAUDI_FIRST_RUN
+  fi
+
   # This variable is a magic variable used when loading themes with zsh's prompt
   # function. It will ensure the proper prompt options are set.
   prompt_opts=(cr percent sp subst)

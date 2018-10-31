@@ -32,7 +32,7 @@ gaudi_rust() {
 
     local -a rust_version
   [[ $GAUDI_RUST_SHOW_VERSION == false ]] || rust_version+="v$(rustc --version | grep --color=never -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]')"
-  [[ $GAUDI_RUST_SHOW_TOOLCHAIN == false ]] || rust_version+=$(rustc --version | grep --colour=never -oE '(stable|beta|nightly)' || echo -n ' stable')
+  [[ $GAUDI_RUST_SHOW_TOOLCHAIN == false ]] || rust_version+=$(rustc --version | grep --colour=never -oE '(stable|beta|nightly)' || echo ' stable')
 
   gaudi::section \
     "$GAUDI_RUST_COLOR" \

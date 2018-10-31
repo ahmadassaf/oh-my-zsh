@@ -63,4 +63,5 @@ for componentName componentPath in ${(kv)ZSH_COMPONENTS}; do
   done
 done
 
+source "$ZSH/lib/termsupport.zsh"
 # source "$ZSH/themes/gaudi/gaudi.theme.zsh"

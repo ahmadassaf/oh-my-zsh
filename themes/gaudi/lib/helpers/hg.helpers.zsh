@@ -15,7 +15,7 @@ function get_hg_root {
 
     while [[ "$CURRENT_DIR" != "/" ]]; do
         if [[ -d "$CURRENT_DIR/.hg" ]]; then
-            echo -n "$CURRENT_DIR/.hg"
+            echo "$CURRENT_DIR/.hg"
             return
         fi
 

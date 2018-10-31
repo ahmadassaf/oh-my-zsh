@@ -84,22 +84,37 @@ preexec_functions+=(omz_termsupport_preexec)
 # With extra fixes to handle multibyte chars and non-UTF-8 locales
 
 if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]]; then
-  # Emits the control sequence to notify Terminal.app of the cwd
-  # Identifies the directory using a file: URI scheme, including
-  # the host name to disambiguate local vs. remote paths.
-  function update_terminalapp_cwd() {
-    emulate -L zsh
 
-    # Percent-encode the pathname.
-    local URL_PATH="$(omz_urlencode -P $PWD)"
-    [[ $? != 0 ]] && return 1
+    update_terminal_cwd() {
+        # Identify the directory using a "file:" scheme URL, including
+        # the host name to disambiguate local vs. remote paths.
 
-    # Undocumented Terminal.app-specific control sequence
-    printf '\e]7;%s\a' "file://$HOST$URL_PATH"
-  }
+        # Percent-encode the pathname.
+        local URL_PATH=''
+        {
+            # Use LC_CTYPE=C to process text byte-by-byte.
+            local i ch hexch LC_CTYPE=C
+            for ((i = 1; i <= ${#PWD}; ++i)); do
+                ch="$PWD[i]"
+                if [[ "$ch" =~ [/._~A-Za-z0-9-] ]]; then
+                    URL_PATH+="$ch"
+                else
+                    hexch=$(printf "%02X" "'$ch")
+                    URL_PATH+="%$hexch"
+                fi
+            done
+        }
 
-  # Use a precmd hook instead of a chpwd hook to avoid contaminating output
-  precmd_functions+=(update_terminalapp_cwd)
-  # Run once to get initial cwd set
-  update_terminalapp_cwd
+        local PWD_URL="file://$HOST$URL_PATH"
+        #echo "$PWD_URL"        # testing
+        printf '\e]7;%s\a' "$PWD_URL"
+    }
+
+    # Register the function so it is called whenever the working
+    # directory changes.
+    autoload add-zsh-hook
+    add-zsh-hook chpwd update_terminal_cwd
+
+    # Tell the terminal about the initial directory.
+    update_terminal_cwd
 fi

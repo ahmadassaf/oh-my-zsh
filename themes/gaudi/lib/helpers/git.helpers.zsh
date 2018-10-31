@@ -62,7 +62,7 @@ function _git-upstream-remote {
 
   local branch
   branch="$(_git-upstream-branch)" || return 1
-  echo -n "${upstream%"/${branch}"}"
+  echo "${upstream%"/${branch}"}"
 }
 
 function _git-upstream-branch {
@@ -133,7 +133,7 @@ function _git-remote-info {
     remote_info="\$(_git-upstream-branch)"
   fi
   if [[ -n "${remote_info}" ]];then
-    echo -n "${remote_info}"
+    echo "${remote_info}"
   fi
 }
 
@@ -191,7 +191,7 @@ function git_prompt_minimal_info {
   fi
 
   # Output the git prompt
-  echo -n "${GAUDI_SCM_BRANCH}${GAUDI_SCM_STATE}"
+  echo "${GAUDI_SCM_BRANCH}${GAUDI_SCM_STATE}"
 }
 
 function git_prompt_vars {
@@ -236,10 +236,10 @@ function git_prompt_vars {
   fi
 
   if [[ "${GAUDI_SCM_GIT_SHOW_COMMIT_SHA}" == true ]]; then
-    GAUDI_SCM_BRANCH+=$(echo -n " ${GAUDI_SCM_GIT_SHA_CHAR} $(_git-short-sha)")
+    GAUDI_SCM_BRANCH+=$(echo " ${GAUDI_SCM_GIT_SHA_CHAR} $(_git-short-sha)")
   fi
 
   [[ "${GAUDI_SCM_GIT_SHOW_CURRENT_USER}" == "true" ]] && GAUDI_SCM_BRANCH+="$(git_user_info)"
 
-  GAUDI_SCM_CHANGE=$(_git-short-sha 2>/dev/null || echo -n "")
+  GAUDI_SCM_CHANGE=$(_git-short-sha 2>/dev/null || echo "")
 }

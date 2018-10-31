@@ -31,8 +31,8 @@ gaudi_cwd() {
   reduce-path() {
     local path=${1-$PWD} target=${2-33} IFS=/
     [[ "$path" =~ ^$HOME(/|$) ]] && path="~${path#$HOME}"
-    [[ ${#path} -le $target ]] && echo -n "$path" && return
-    local order=$((i=0; for e in $path; do echo -n ${#e} $i; ((i++)); done) |
+    [[ ${#path} -le $target ]] && echo "$path" && return
+    local order=$((i=0; for e in $path; do echo ${#e} $i; ((i++)); done) |
         head -n-1 | sort -rn | cut -d " " -f 2)
     local elements=($path)
     IFS=$'\n'
@@ -40,9 +40,9 @@ gaudi_cwd() {
         elements[i]=${elements[i]:0:1}
         IFS=/
         path="${elements[*]}"
-        [[ ${#path} -le $target ]] && echo -n "$path" && return
+        [[ ${#path} -le $target ]] && echo "$path" && return
     done
-    echo -n "${path:0:target/2}~${path: -target/2}"
+    echo "${path:0:target/2}~${path: -target/2}"
   }
 
   [[ $GAUDI_CWD_SHORTEN == true ]] && GAUDI_CWD=$(reduce-path) || GAUDI_CWD=$(pwd | sed "s|^${HOME}|~|")

@@ -60,7 +60,7 @@ function scm_prompt_info {
 
 function scm_prompt_char_info {
   scm_prompt_char
-  echo -ne "${GAUDI_SCM_THEME_CHAR_PREFIX}${GAUDI_SCM_CHAR}${GAUDI_SCM_THEME_CHAR_SUFFIX}"
+  echoe "${GAUDI_SCM_THEME_CHAR_PREFIX}${GAUDI_SCM_CHAR}${GAUDI_SCM_THEME_CHAR_SUFFIX}"
   scm_prompt_info_common
 }
 
@@ -89,25 +89,25 @@ function scm_prompt_info_common {
 function git_prompt_info {
   _git-hide-status && return
   git_prompt_vars
-  echo -n "${GAUDI_SCM_BRANCH}${GAUDI_SCM_STATE}"
+  echo "${GAUDI_SCM_BRANCH}${GAUDI_SCM_STATE}"
 }
 
 function p4_prompt_info() {
   p4_prompt_vars
-  echo -n "${GAUDI_SCM_BRANCH}:${GAUDI_SCM_CHANGE}${GAUDI_SCM_STATE}"
+  echo "${GAUDI_SCM_BRANCH}:${GAUDI_SCM_CHANGE}${GAUDI_SCM_STATE}"
 }
 
 function svn_prompt_info {
   svn_prompt_vars
-  echo -n "${GAUDI_SCM_BRANCH}${GAUDI_SCM_STATE}"
+  echo "${GAUDI_SCM_BRANCH}${GAUDI_SCM_STATE}"
 }
 
 function hg_prompt_info() {
   hg_prompt_vars
-  echo -n "${GAUDI_SCM_BRANCH}:${GAUDI_SCM_CHANGE#*:}${GAUDI_SCM_STATE}"
+  echo "${GAUDI_SCM_BRANCH}:${GAUDI_SCM_CHANGE#*:}${GAUDI_SCM_STATE}"
 }
 
 function scm_char {
   scm_prompt_char
-  echo -n "${GAUDI_SCM_THEME_CHAR_PREFIX}${GAUDI_SCM_CHAR}${GAUDI_SCM_THEME_CHAR_SUFFIX}"
+  echo "${GAUDI_SCM_THEME_CHAR_PREFIX}${GAUDI_SCM_CHAR}${GAUDI_SCM_THEME_CHAR_SUFFIX}"
 }

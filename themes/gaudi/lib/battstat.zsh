@@ -25,15 +25,15 @@ battstat() {
         battery_details=$(pmset -g batt)
 
         # Exit if no battery exists.
-        if ! echo -n "$battery_details" | grep -q InternalBattery; then
+        if ! echo "$battery_details" | grep -q InternalBattery; then
             exit_no_battery
         fi
         
-        charged=$(echo -n "$battery_details" | grep -w 'charged')
-        charging=$(echo -n "$battery_details" | grep -w 'AC Power')
-        discharging=$(echo -n "$battery_details" | grep -w 'Battery Power')
-        time=$(echo -n "$battery_details" | grep -Eo '([0-9][0-9]|[0-9]):[0-5][0-9]')
-        percent=$(echo -n "$battery_details" | grep -o "[0-9]*"%)
+        charged=$(echo "$battery_details" | grep -w 'charged')
+        charging=$(echo "$battery_details" | grep -w 'AC Power')
+        discharging=$(echo "$battery_details" | grep -w 'Battery Power')
+        time=$(echo "$battery_details" | grep -Eo '([0-9][0-9]|[0-9]):[0-5][0-9]')
+        percent=$(echo "$battery_details" | grep -o "[0-9]*"%)
     }
 
     get_linux_details() {
@@ -44,19 +44,19 @@ battstat() {
             exit_no_battery
         fi
         
-        charged=$(echo -n "$battery_details" | grep 'state' | grep -w 'fully-charged')
-        charging=$(echo -n "$battery_details" | grep 'state' | grep -w 'charging')
-        discharging=$(echo -n "$battery_details" | grep 'state' | grep -w 'discharging')
-        percent=$(echo -n "$battery_details"| grep 'percentage' | awk '{print $2}')
+        charged=$(echo "$battery_details" | grep 'state' | grep -w 'fully-charged')
+        charging=$(echo "$battery_details" | grep 'state' | grep -w 'charging')
+        discharging=$(echo "$battery_details" | grep 'state' | grep -w 'discharging')
+        percent=$(echo "$battery_details"| grep 'percentage' | awk '{print $2}')
         
-        case $(echo -n "$battery_details" | grep 'time' | awk '{print $5}') in
+        case $(echo "$battery_details" | grep 'time' | awk '{print $5}') in
         "hours")
-            hours=$(echo -n "$battery_details" | grep 'time' | awk '{print $4}' | cut -d . -f1)
-            minutes=$(echo -n "$battery_details" | grep 'time' | awk '{print $4}' | cut -d . -f2)
-            minutes=$(echo -n .$minutes \* 60 | bc -l | cut -d. -f1)
+            hours=$(echo "$battery_details" | grep 'time' | awk '{print $4}' | cut -d . -f1)
+            minutes=$(echo "$battery_details" | grep 'time' | awk '{print $4}' | cut -d . -f2)
+            minutes=$(echo .$minutes \* 60 | bc -l | cut -d. -f1)
             ;;
         "minutes")
-            minutes=$(echo -n "$battery_details" | grep 'time' | awk '{print $4}' | cut -d . -f1)
+            minutes=$(echo "$battery_details" | grep 'time' | awk '{print $4}' | cut -d . -f1)
             ;;
         esac
 
@@ -81,10 +81,10 @@ battstat() {
         exit_no_battery
         fi
 
-        charging=$(echo -n $battery_details | grep -w 'state: connected')
-        discharging=$(echo -n $battery_details | grep -w 'state: not connected')
-        percent=$(echo -n $battery_details | grep -o '[0-9]*%')
-        full_minutes=$(echo -n $battery_details | grep -o ' [0-9]* ')
+        charging=$(echo $battery_details | grep -w 'state: connected')
+        discharging=$(echo $battery_details | grep -w 'state: not connected')
+        percent=$(echo $battery_details | grep -o '[0-9]*%')
+        full_minutes=$(echo $battery_details | grep -o ' [0-9]* ')
 
         # Battery is considered charged when AC is connected and 100%
         if [[ ! -z "$charging" ]] && [[ $percent = "100%" ]]; then
@@ -118,7 +118,7 @@ battstat() {
             icon=$discharging_icon
         fi
         
-        [[ $GAUDI_ENABLE_SYMBOLS == true ]] && echo -n "$icon "
+        [[ $GAUDI_ENABLE_SYMBOLS == true ]] && echo "$icon "
     }
 
     print_time() {
@@ -140,20 +140,20 @@ battstat() {
 
     print_background() {
         # Remove trailing % and symbols for comparison
-        battery_percent="$(echo -n $percent | tr -d '%[,;]')"
+        battery_percent="$(echo $percent | tr -d '%[,;]')"
         # Change color based on battery percentage
         if [[ $battery_percent == 100 || ! -z "$charged" ]]; then
-            echo -n "$GREEN"
+            echo "$GREEN"
         elif [[ $battery_percent -lt $threshold ]]; then
-            echo -n "$RED"
+            echo "$RED"
         else
-            echo -n "$YELLOW"
+            echo "$YELLOW"
         fi
     }
 
     print_percent() {
         if [[ ! -z "$percent" ]]; then
-            echo -n "$percent %%"
+            echo "$percent %%"
         fi
     }
 
@@ -168,7 +168,7 @@ battstat() {
         get_openbsd_details
         ;;
         *)
-        echo -n "N/A"
+        echo "N/A"
         return
         ;;
     esac

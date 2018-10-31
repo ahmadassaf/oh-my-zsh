@@ -44,9 +44,9 @@ gaudi_dockercompose() {
 
 	dockercompose_details=$(docker-compose ps 2>/dev/null | tail -n+3 | while read line
 		do
-			CONTAINER_NAME=$(echo -n ${line:$(echo -n $line | awk 'match($0,"_"){print RSTART}')} | tr '[:lower:]' '[:upper:]' | cut -f1 -d"_")
-			CONTAINER_LETTER=$(echo -n ${CONTAINER_NAME:0:1} | tr '[:lower:]' '[:upper:]')
-			_CONTAINER_SYMBOL=$(echo -n "GAUDI_DOCKERCOMPOSE_SYMBOL_${CONTAINER_NAME}")
+			CONTAINER_NAME=$(echo ${line:$(echo $line | awk 'match($0,"_"){print RSTART}')} | tr '[:lower:]' '[:upper:]' | cut -f1 -d"_")
+			CONTAINER_LETTER=$(echo ${CONTAINER_NAME:0:1} | tr '[:lower:]' '[:upper:]')
+			_CONTAINER_SYMBOL=$(echo "GAUDI_DOCKERCOMPOSE_SYMBOL_${CONTAINER_NAME}")
 
 			if [[ -z ${!_CONTAINER_SYMBOL} || $GAUDI_DOCKERCOMPOSE_SHOW_SYMBOLS == false ]]; then
 				CONTAINER_SYMBOL=$CONTAINER_LETTER
@@ -60,7 +60,7 @@ gaudi_dockercompose() {
 			else
 				dockercompose_status_down+="$GAUDI_DOCKERCOMPOSE_SYMBOL_DOWN $CONTAINER_SYMBOL "
 			fi
-		echo -n "$up_containers|$dockercompose_status_up::$dockercompose_status_down"
+		echo "$up_containers|$dockercompose_status_up::$dockercompose_status_down"
 	done | tail -1)
 	
 	_dockercompose_details="${dockercompose_details%%::*}"
@@ -83,6 +83,6 @@ gaudi_dockercompose() {
     "$color" \
     "$GAUDI_DOCKERCOMPOSE_PREFIX" \
     "$GAUDI_DOCKERCOMPOSE_SYMBOL" \
-    "$(echo -n "${GAUDI_DOCKERCOMPOSE_TEXT_COLOR}services: $dockercompose_status")" \
+    "$(echo "${GAUDI_DOCKERCOMPOSE_TEXT_COLOR}services: $dockercompose_status")" \
     "$GAUDI_DOCKERCOMPOSE_SUFFIX"
 }
