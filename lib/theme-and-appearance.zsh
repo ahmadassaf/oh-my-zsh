@@ -57,16 +57,6 @@ ZSH_THEME_GIT_PROMPT_PREFIX="git:("         # Prefix at the very beginning of th
 ZSH_THEME_GIT_PROMPT_SUFFIX=")"             # At the very end of the prompt
 ZSH_THEME_GIT_PROMPT_DIRTY="*"              # Text to display if the branch is dirty
 ZSH_THEME_GIT_PROMPT_CLEAN=""               # Text to display if the branch is clean
-<<<<<<< HEAD
 
 # Setup the prompt with pretty colors
 setopt prompt_subst
-
-# Enabling dircolors coloring
-eval `gdircolors -b ~/.dircolors`
-
-# If we have grc enabled this is used to add coloring to various commands
-source "/usr/local/etc/grc.bashrc"
-
-=======
->>>>>>> 035d78120cb41297068967d3205a23bee22b9543
